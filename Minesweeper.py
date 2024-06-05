@@ -18,6 +18,8 @@ while i < bombCount:
     if array[bombrow, bombcolumn] != 88:  # Array me 88 agar nhi hai
         array[bombrow, bombcolumn] = 88  # daal do 88
         i += 1
+    else:
+        print(he)
 
 # print("i",i)
 # print("BC",bombCount)
