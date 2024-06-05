@@ -3,20 +3,22 @@ import numpy as np
 row = 4
 column = 4
 bombCount = 5
-NONbombcount = row * column - bombCount
+NONbombcount = row * column - bombCount  # JO NUMBERS HEIN WO
 
 array = np.random.randint(1, size=(row, column))
 covers = np.random.randint(1, size=(row, column))
 i = 0
 while i < bombCount:
 
-    bombrow = np.random.randint(0, row)
-    bombcolumn = np.random.randint(0, column)
+    bombrow = np.random.randint(0, row)  # ROWS  MEIN RANDOM LGA KAR
+
+    bombcolumn = np.random.randint(0, column)  # COLUMN MEIN RANDOM LGA KAR
     # print("BR",bombrow)
     # print("Bcoul",bombcolumn)
-    if array[bombrow, bombcolumn] != 88:
-        array[bombrow, bombcolumn] = 88
+    if array[bombrow, bombcolumn] != 88:  # Array me 88 agar nhi hai
+        array[bombrow, bombcolumn] = 88  # daal do 88
         i += 1
+
 # print("i",i)
 # print("BC",bombCount)
 # print(array)
@@ -25,18 +27,22 @@ print(array)
 for i in range(row):
     for j in range(column):
         if array[i, j] != 88:
-            nbombCount = 0
+            nbombCount = (
+                0  # nearby bomb count ke means isme like wahi 3x3 ka grid set krna
+            )
             # print("bc", nbombCount)
-            for p in range(max(i - 1, 0), min(row, i + 2)):
+            for p in range(
+                max(i - 1, 0), min(row, i + 2)
+            ):  # Y MAX ,MIN FOR I MEANS ROW CORNER AUR VICE VERSA
                 for q in range(max(0, j - 1), min(column, j + 2)):
                     if array[p, q] == 88:
-                        nbombCount = nbombCount + 1
+                        nbombCount = nbombCount + 1  # MTLB 3X3 ME PURA LOOP CHLAA DOO
             array[i, j] = nbombCount
 
-print(array)
+print(array)  # APN SABSSE PHLE NUMBERS KO SET KRENGE PHIR BOMB LGAYENGE
 
 
-def printboard():
+def printboard():  # DEFINE FUCNTION
     for i in range(row):
         strm = " "
         for j in range(column):
